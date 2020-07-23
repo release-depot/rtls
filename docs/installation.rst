@@ -14,7 +14,7 @@ To install Real Time Locator System, run this command in your terminal:
 
     $ pip install rtls
 
-This is the preferred method to install Real Time Locator System, as it will always install the most recent stable release. 
+This is the preferred method to install Real Time Locator System, as it will always install the most recent stable release.
 
 If you don't have `pip`_ installed, this `Python installation guide`_ can guide
 you through the process.
@@ -38,7 +38,7 @@ Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/release-depot/rtls/tarball/master
+    $ curl -OJL https://github.com/release-depot/rtls/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
