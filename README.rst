@@ -18,7 +18,7 @@ Real Time Locator System
      :alt: Updates
 
 
- RTLS, or Real Time Locator System, is an abstraction layer for tracking changes to code through their lifecycle 
+RTLS, or Real Time Locator System, is an abstraction layer for tracking changes to code through their lifecycle
 
 
 * Free software: MIT license
@@ -31,10 +31,9 @@ Features
 * TODO
 
 Credits
----------
+-------
 
 This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
-
