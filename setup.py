@@ -12,16 +12,14 @@ with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
 requirements = [
-    # TODO: put package requirements here
+    'Distroinfo>=0.1',
 ]
 
 setup_requirements = [
-    # TODO(jguiditta): put setup requirements (distutils extensions, etc.) here
     'pytest-runner',
 ]
 
 test_requirements = [
-    # TODO: put package test requirements here
     'pytest>=3',
 ]
 
@@ -47,7 +45,7 @@ setup(
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
     test_suite='tests',
     tests_require=test_requirements,
