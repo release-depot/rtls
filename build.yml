@@ -1,0 +1,23 @@
+---
+- name: rtls build
+  hosts: all
+  vars:
+    www_root: '/var/www/rtls/service'
+    ansible_bender:
+      base_image: 'registry.fedoraproject.org/fedora:latest'
+      cache_tasks: False
+      layering: False
+      target_image:
+        name: rtls
+        environment:
+          PIPENV_VENV_IN_PROJECT: 'True'
+        entrypoint: "{{ www_root }}/service_run.sh"
+        working_dir: "{{ www_root }}"
+  tasks:
+  - name: Setup the base
+    include_role:
+      name: base
+
+  - name: Setup the app
+    include_role:
+      name: app

@@ -66,9 +66,15 @@ Ready to contribute? Here's how to set up `rtls` for local development.
 
 3. Install your local copy into a virtualenv. Assuming you have virtualenvwrapper installed, this is how you set up your fork for local development::
 
-    $ mkvirtualenv rtls
-    $ cd rtls/
-    $ python setup.py develop
+First, go into the pipenv virtual environment::
+
+    $ pipenv update --dev
+    $ pipenv shell
+
+Running the local development server::
+
+    (pkg_syncer)[]$ cd ./service
+    (pkg_syncer)[]$ python main.py
 
 4. Create a branch for local development::
 
@@ -76,13 +82,10 @@ Ready to contribute? Here's how to set up `rtls` for local development.
 
    Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass flake8 and the tests, including testing other Python versions with tox::
+5. When you're done making changes, check that your changes pass flake8 and the tests::
 
-    $ flake8 rtls tests
-    $ python setup.py test or py.test
-    $ tox
-
-   To get flake8 and tox, just pip install them into your virtualenv.
+    (rtls)[]$ flake8 service
+    (rtls)[]$ pytest service
 
 6. Commit your changes and push your branch to GitHub::
 
@@ -101,14 +104,13 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
-3. The pull request should work for Python 3.6 and 3.7. Check
+3. The pull request should work for Python 3.8. Check
    https://travis-ci.org/release-depot/rtls/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
 Tips
 ----
 
-To run a subset of tests::
+To run a single test::
 
-
-    $ python -m unittest tests.test_rtls
+    (rtls)[]$ service/tests/test_rtls.py::test_rtls

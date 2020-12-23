@@ -24,11 +24,39 @@ RTLS, or Real Time Locator System, is an abstraction layer for tracking changes 
 * Free software: MIT license
 * Documentation: https://rtls.readthedocs.io.
 
+API
+---
 
-Features
---------
+Test call - /rtls/[package]/[changeId] (GET)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* TODO
+Test call::
+
+    $ curl localhost:8080/rtls/mypackage/I123456
+    {"msg": "Test with mypackage"}
+
+Development
+-----------
+
+See **CONTRIBUTING.rst**.
+
+Container image creation
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Building the container image::
+
+    $ pipenv shell
+    $ ansible-bender build ./build.yml
+
+Running the container image::
+
+    $ podman run -d --name rtls -p 8080:80 localhost/rtls:latest
+
+Reading the container logs::
+
+    $ podman logs rtls
+    $ podman exec -it rtls cat /var/log/nginx/error.log | less
+
 
 Credits
 -------

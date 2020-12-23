@@ -1,0 +1,9 @@
+#! /bin/bash
+
+source {{ www_root }}/.venv/bin/activate
+cd {{ www_root }}
+nginx
+# Timeout value is in seconds
+gunicorn wsgi:app \
+         --bind 127.0.0.1:8000 \
+         --timeout 300

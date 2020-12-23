@@ -1,0 +1,35 @@
+---
+
+- name: Install packages
+  dnf:
+    name:
+      - pipenv
+      - nginx
+      - python38
+    state: present
+    install_weak_deps: no
+
+- name: Clean dnf metadata
+  shell: 'dnf clean all'
+  args:
+    warn: no
+
+- name: Remove dnf cache
+  file:
+    path: /var/lib/dnf
+    state: absent
+
+- name: Set up base directory for apps
+  file:
+    path: "{{ www_root }}"
+    state: directory
+
+- name: Copy nginx config
+  copy:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: nginx
+    group: nginx
+  loop:
+    - {'src': 'rtls.conf', 'dest': '/etc/nginx/conf.d'}
+    - {'src': 'proxy_params', 'dest': '/etc/nginx'}
