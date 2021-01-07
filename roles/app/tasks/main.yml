@@ -1,0 +1,38 @@
+---
+
+- name: Setting up the app directory
+  file:
+    path: "{{ www_root }}"
+    state: directory
+
+- name: Copy app code
+  copy:
+    src: "{{ playbook_dir }}/service"
+    dest: "{{ app_root }}"
+
+- name: Copy python packaging files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ app_root }}"
+  loop:
+    - "{{ playbook_dir }}/service/setup.py"
+    - "{{ playbook_dir }}/service/requirements.txt"
+
+- name: Copy Pipenv files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ www_root }}"
+    mode: preserve
+  loop:
+    - "{{ playbook_dir }}/Pipfile"
+
+- name: Setup venv
+  shell:
+    cmd: "pipenv update"
+    chdir: "{{ app_root }}"
+
+- name: Copy files
+  template:
+    src: templates/service_run.j2
+    dest: "{{ app_root }}/service_run.sh"
+    mode: 'o+x'

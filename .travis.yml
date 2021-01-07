@@ -2,15 +2,20 @@
 # This file will be regenerated if you run travis_pypi_setup.py
 
 language: python
-python:
-  - 3.6
-  - 3.8
+matrix:
+  include:
+    - python: 3.8
+    - python: 3.9
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
-install: pip install -U tox-travis
+install:
+  - pip install pipenv
+  - pipenv install --dev
 
 # command to run tests, e.g. python setup.py test
-script: tox
+script:
+  - pipenv run flake8 service
+  - pipenv run pytest service
 
 # After you create the Github repo and add it to Travis, run the
 # travis_pypi_setup.py script to finish PyPI deployment setup
