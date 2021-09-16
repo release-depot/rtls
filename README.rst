@@ -6,9 +6,6 @@ Real Time Locator System
 .. image:: https://img.shields.io/pypi/v/rtls.svg
         :target: https://pypi.python.org/pypi/rtls
 
-.. image:: https://img.shields.io/travis/release-depot/rtls.svg
-        :target: https://travis-ci.org/release-depot/rtls
-
 .. image:: https://readthedocs.org/projects/rtls/badge/?version=latest
         :target: https://rtls.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status

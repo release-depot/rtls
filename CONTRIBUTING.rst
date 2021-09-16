@@ -105,7 +105,6 @@ Before you submit a pull request, check that it meets these guidelines:
    your new functionality into a function with a docstring, and add the
    feature to the list in README.rst.
 3. The pull request should work for Python 3.8. Check
-   https://travis-ci.org/release-depot/rtls/pull_requests
    and make sure that the tests pass for all supported Python versions.
 
 Tips
